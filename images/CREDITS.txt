@@ -1,0 +1,32 @@
+Photos d'ambiance (licence Pexels : gratuites, usage commercial autorise, attribution non obligatoire)
+https://www.pexels.com/license/
+
+repas-1.jpg  https://www.pexels.com/photo/30818113/
+repas-2.jpg  https://www.pexels.com/photo/6605248/
+repas-3.jpg  https://www.pexels.com/photo/13335053/
+repas-4.jpg  https://www.pexels.com/photo/10058448/
+
+Ce sont des photos d'ambiance : ne jamais les presenter comme de vrais utilisateurs de FoodFriends.
+repas-5.jpg  https://www.pexels.com/photo/6605256/
+repas-1-grand.jpg  https://www.pexels.com/photo/30818113/ (meme photo que repas-1, cadrage carre)
+seul.jpg  https://www.pexels.com/photo/5177136/
+etape-1.jpg  https://www.pexels.com/photo/39910813/
+etape-2.jpg  https://www.pexels.com/photo/3785851/
+invite.jpg  https://unsplash.com/photos/ (photo-1777679569537-8f481b36bd43, licence Unsplash)
+partage.jpg  https://unsplash.com/photos/ (photo-1758525226490-c1553d9f3ad3, licence Unsplash)
+restaurateur.jpg  https://www.pexels.com/photo/39910849/
+table.jpg  https://www.pexels.com/photo/15372564/
+etape-3.jpg  https://www.pexels.com/photo/5083902/
+ecran-fil.jpg  capture de l'appli FoodFriends
+Licence Unsplash : https://unsplash.com/license (gratuit, usage commercial, attribution non obligatoire)
+hero-duo.jpg / hero-duo-carre.jpg  https://www.pexels.com/photo/30818113/ (photo entiere et recadrage carre)
+ecran-messages.jpg  capture de l'appli FoodFriends (App Store v6)
+apercu-partage.jpg  image d'apercu des partages (1200x630) faite a partir de hero-duo-carre.jpg
+ecran-presence.jpg  capture de l'appli FoodFriends (App Store v6)
+ecran-presence-ok.jpg  etat 'Presence confirmee' reconstitue a partir de la capture v6 (textes et couleurs de app/presence.tsx)
+ressenti.jpg  https://www.pexels.com/photo/4397213/ (Mathias Reding, bistrot parisien "Le Pave", licence Pexels)
+
+Visages des profils visibles dans les captures de l'appli (01-*.jpg a 09-*.jpg, ecran-*.jpg) :
+images generees par IA sur https://thispersondoesnotexist.com (StyleGAN, NVIDIA), telechargees
+le 22/10/2026 puis serie finale le 24/10/2026. Ce ne sont pas de vraies personnes.
+Originaux + details : backups/visages-demo-ia/ (local, hors git).

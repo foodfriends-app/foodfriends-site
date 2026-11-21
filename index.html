@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FoodFriends – Fini de manger solo, rencontre du monde au resto à Paris</title>
+<meta name="description" content="Rencontre du monde à Paris autour d'un bon repas. FoodFriends te met en relation avec quelqu'un près de chez toi pour partager un resto. Invite, fais-toi inviter ou partage l'addition.">
+<meta property="og:title" content="FoodFriends – Fini de manger solo">
+<meta property="og:description" content="Partage un bon repas au resto avec quelqu'un de nouveau, près de chez toi à Paris.">
+<meta property="og:image" content="https://foodfriends.app/images/apercu-partage.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Un homme et une femme partagent une pizza au resto. Fini de manger solo.">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="FoodFriends">
+<meta property="og:url" content="https://foodfriends.app/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FoodFriends – Fini de manger solo">
+<meta name="twitter:description" content="Partage un bon repas au resto avec quelqu'un de nouveau, près de chez toi à Paris.">
+<meta name="twitter:image" content="https://foodfriends.app/images/apercu-partage.jpg">
+<meta name="theme-color" content="#FF6B35">
+<link rel="icon" type="image/png" href="images/icon.png">
+<link rel="apple-touch-icon" href="images/icon.png">
+<style>
+@font-face { font-family: 'Pacifico'; src: url('Pacifico-Regular.ttf') format('truetype'); font-display: swap; }
+
+:root {
+  --orange: #FF6B35;
+  --orange-dark: #e8550a;
+  --orange-bg: #fff8f5;
+  --orange-border: #ffd5c0;
+  --navy: #1e3a5f;
+  --purple: #8B5CF6;
+  --green: #22c55e;
+  --bg: #f8f6f4;
+  --surface: #ffffff;
+  --text: #1a1a1a;
+  --text-2: #555555;
+  --dark: #1a1a1a;
+  --radius: 22px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+#telecharger { scroll-margin-top: 120px; scroll-margin-bottom: 70px; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+.script { font-family: 'Pacifico', cursive; font-weight: 400; }
+
+/* ─── Bandeau du haut ─── */
+.nav {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(248, 246, 244, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid #eae6df;
+}
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; font-size: 20px; }
+.logo img { width: 36px; height: 36px; border-radius: 9px; }
+.nav-links { display: flex; gap: 26px; align-items: center; }
+.nav-links a { text-decoration: none; font-weight: 600; font-size: 15px; color: var(--text-2); }
+.nav-links a:hover { color: var(--orange); }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 22px; border-radius: 999px;
+  font-weight: 700; font-size: 15px; text-decoration: none;
+  border: 2px solid var(--dark);
+  transition: transform .15s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-orange { background: var(--orange); color: #fff; }
+.nav .btn { padding: 8px 18px; font-size: 14px; }
+.nav-links .btn { color: #fff; }
+
+/* ─── Haut de page ─── */
+.hero {
+  background: radial-gradient(circle at 15% 20%, #4a2614 0%, #2b160c 60%);
+  color: #fff; overflow: hidden; position: relative;
+}
+.hero .wrap {
+  display: grid; grid-template-columns: minmax(0, 560px); min-height: 620px;
+  align-items: center; padding-top: 90px; padding-bottom: 30px;
+  position: relative; z-index: 1;
+}
+.sticker {
+  display: inline-block; background: #fff; color: var(--orange);
+  padding: 5px 16px; border-radius: 999px; font-size: 16px;
+  transform: rotate(-3deg); border: 2px solid var(--dark);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.12);
+  margin: 8px 0 14px;
+}
+.hero h1 { font-size: clamp(38px, 5.4vw, 62px); line-height: 1.08; font-weight: 900; letter-spacing: -1px; margin-bottom: 20px; }
+.hero p.lead { font-size: 19px; opacity: .95; max-width: 520px; margin-bottom: 14px; }
+.hero .chute { font-size: clamp(20px, 2.2vw, 25px); line-height: 1.4; margin-bottom: 30px; color: #FF8A55; }
+.hero .store { background: var(--orange); border-color: var(--orange); }
+.stores { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; }
+.store {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--dark); color: #fff; text-decoration: none;
+  padding: 10px 20px; border-radius: 14px; min-width: 190px;
+  border: 2px solid var(--dark);
+}
+.store svg { width: 26px; height: 26px; flex-shrink: 0; }
+.store small { display: block; font-size: 11px; opacity: .75; line-height: 1.2; }
+.store strong { display: block; font-size: 17px; line-height: 1.2; }
+.store.soon { background: rgba(0, 0, 0, 0.25); border-color: rgba(255, 255, 255, 0.5); cursor: default; }
+.hero .note { font-size: 14px; opacity: .85; padding-bottom: 60px; }
+.app-phone {
+  position: absolute; right: 14px; bottom: -34px; width: 92px; z-index: 2;
+  padding: 5px; background: #111; border-radius: 20px;
+  box-shadow: 0 0 0 2px #444, 0 22px 50px rgba(0, 0, 0, 0.35); transform: rotate(-6deg);
+}
+.app-phone::before {
+  content: ""; position: absolute; top: 7px; left: 50%; transform: translateX(-50%);
+  width: 24px; height: 6px; background: #111; border-radius: 999px; z-index: 1;
+}
+.app-phone img { width: 100%; display: block; border-radius: 16px; }
+.step-visual { position: relative; }
+.chip {
+  position: absolute; background: #fff; color: var(--text); font-weight: 800; font-size: 15px;
+  padding: 8px 14px; border-radius: 999px; border: 2px solid var(--dark);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.85); white-space: nowrap;
+}
+
+.hero-img {
+  position: absolute; top: 0; right: 0; bottom: 0; width: 52%;
+  background: url('images/hero-duo-carre.jpg') 30% center / cover;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 16%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 16%);
+}
+
+@media (max-width: 1100px) {
+  .hero-img {
+    width: 100%; bottom: auto; height: 440px; background-position: center 22%;
+    -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
+  }
+  .hero .wrap { grid-template-columns: 1fr; justify-items: center; text-align: center; padding-top: 420px; min-height: 0; }
+  .hero p.lead { margin-left: auto; margin-right: auto; }
+  .hero .stores { justify-content: center; }
+}
+
+/* Tout est dans l'appli */
+.fonctions-grid { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 50px; align-items: center; }
+.fonctions-liste { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.fonction {
+  display: flex; gap: 14px; align-items: flex-start;
+  background: var(--surface); border: 2px solid var(--dark); border-radius: 18px;
+  padding: 20px; box-shadow: 0 4px 0 rgba(0, 0, 0, 0.9);
+}
+.fonction .ico {
+  font-size: 22px; width: 44px; height: 44px; flex-shrink: 0; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center; background: var(--orange-bg);
+}
+.fonction h3 { font-size: 17px; margin-bottom: 4px; }
+.fonction p { color: var(--text-2); font-size: 15px; line-height: 1.5; }
+.fonctions-phone { display: flex; justify-content: center; }
+.app-phone.app-phone-grand {
+  position: relative; right: auto; bottom: auto; width: 240px;
+  padding: 10px; border-radius: 40px; transform: rotate(3deg);
+}
+.app-phone.app-phone-grand::before { top: 16px; width: 56px; height: 13px; }
+.app-phone.app-phone-grand img { border-radius: 31px; }
+
+/* ─── Sections ─── */
+section { padding: 90px 0; }
+.kicker { color: var(--orange); font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; font-size: 13px; margin-bottom: 10px; }
+h2 { font-size: clamp(30px, 4vw, 42px); line-height: 1.15; font-weight: 900; letter-spacing: -.5px; margin-bottom: 16px; }
+.intro { font-size: 18px; color: var(--text-2); max-width: 640px; margin-bottom: 48px; }
+.center { text-align: center; }
+.center .intro { margin-left: auto; margin-right: auto; }
+
+.card {
+  background: var(--surface); border: 2px solid var(--dark);
+  border-radius: var(--radius); padding: 28px;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.9);
+}
+
+/* Le probleme */
+.probleme { padding: 70px 0 10px; }
+.probleme .question { font-size: clamp(19px, 2.4vw, 24px); font-weight: 700; margin-bottom: 10px; }
+.probleme .reponse { font-family: 'Pacifico', cursive; color: var(--orange); font-size: clamp(24px, 3vw, 32px); margin-top: 22px; }
+
+
+.probleme-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: center; }
+.probleme-visual { position: relative; }
+.probleme-visual img {
+  width: 100%; aspect-ratio: 9 / 7; object-fit: cover;
+  border-radius: var(--radius); border: 2px solid var(--dark);
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.9); transform: rotate(-2deg);
+}
+.probleme .chip-e { bottom: -16px; right: 14px; transform: rotate(2deg); color: var(--orange-dark); }
+.step-photo {
+  width: calc(100% + 56px); max-width: none; margin: -28px -28px 0; aspect-ratio: 7 / 5; object-fit: cover;
+  border-radius: 20px 20px 0 0; border-bottom: 2px solid var(--dark);
+}
+.step .num { position: relative; margin-top: -23px; background: var(--orange); }
+.resto .resto-card { padding: 0; overflow: hidden; background: var(--surface); }
+.resto-visual { position: relative; }
+.resto-visual img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-bottom: 2px solid var(--dark); }
+.resto-visual .badge-partner { position: absolute; top: 16px; left: 16px; }
+.resto-card h3 { padding: 22px 28px 0; }
+.resto-card p { padding: 0 28px 28px; }
+
+/* Etapes */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.step .num {
+  width: 46px; height: 46px; border-radius: 50%;
+  background: var(--orange); color: #fff; font-weight: 900; font-size: 20px;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid var(--dark); margin-bottom: 18px;
+}
+.step h3 { font-size: 21px; margin-bottom: 8px; }
+.step p { color: var(--text-2); }
+
+/* Inviter / partager */
+.formules { background: var(--surface); border-top: 1px solid #eae6df; border-bottom: 1px solid #eae6df; }
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.formule { padding: 0; overflow: hidden; }
+.formule .band { padding: 18px 28px; font-weight: 800; font-size: 18px; color: #fff; border-bottom: 2px solid var(--dark); }
+.formule.invite .band { background: var(--orange); }
+.formule.split .band { background: var(--navy); }
+.formule .body { padding: 26px 28px 30px; }
+.formule-photo { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-bottom: 2px solid var(--dark); }
+.formule h3 { font-size: 24px; margin-bottom: 10px; }
+.formule p { color: var(--text-2); margin-bottom: 14px; }
+.formule ul { list-style: none; display: grid; gap: 8px; }
+.formule li::before { content: "✓"; font-weight: 900; margin-right: 10px; }
+.formule.invite li::before { color: var(--orange); }
+.formule.split li::before { color: var(--navy); }
+
+/* Captures */
+.gallery {
+  display: flex; gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: 6px 20px 26px; margin: 0 -20px;
+  scrollbar-width: thin;
+}
+.gallery img {
+  width: 250px; flex-shrink: 0; border-radius: 24px; scroll-snap-align: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Confiance */
+.trust { background: var(--dark); color: #fff; }
+.trust .intro { color: #bbb; }
+.trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.trust-item { background: #262626; border: 1px solid #333; border-radius: var(--radius); padding: 26px; }
+.trust-item .ico { font-size: 30px; margin-bottom: 14px; }
+.trust-item h3 { font-size: 19px; margin-bottom: 8px; }
+.trust-item p { color: #bbb; font-size: 15.5px; }
+
+/* Restaurateurs */
+.resto { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.badge-partner {
+  display: inline-block; background: var(--purple); color: #fff; font-weight: 800;
+  padding: 6px 14px; border-radius: 999px; font-size: 13px; margin-bottom: 14px;
+  border: 2px solid var(--dark);
+}
+.resto ul { list-style: none; display: grid; gap: 14px; margin: 24px 0 30px; }
+.resto li { display: flex; gap: 12px; color: var(--text-2); }
+.resto li strong { color: var(--text); }
+.resto .card { background: var(--orange-bg); }
+.resto .card .big { font-size: 46px; margin-bottom: 10px; }
+.resto .card h3 { font-size: 22px; margin-bottom: 8px; }
+.resto .card p { color: var(--text-2); }
+
+/* FAQ */
+.faq { max-width: 780px; margin: 0 auto; display: grid; gap: 14px; }
+details { background: var(--surface); border: 2px solid var(--dark); border-radius: 18px; padding: 0 24px; }
+summary {
+  cursor: pointer; list-style: none; font-weight: 700; font-size: 17px;
+  padding: 20px 30px 20px 0; position: relative;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; position: absolute; right: 0; top: 16px; font-size: 26px; color: var(--orange); font-weight: 400; }
+details[open] summary::after { content: "–"; }
+details p { color: var(--text-2); padding-bottom: 22px; }
+
+/* Qui est derriere */
+.derriere {
+  padding: 100px 0;
+  background: linear-gradient(rgba(26, 26, 26, 0.45), rgba(26, 26, 26, 0.45)), url('images/table.jpg') center / cover;
+}
+.derriere .card { max-width: 780px; margin: 0 auto; background: var(--orange-bg); }
+.derriere .texte { font-size: 18px; margin-bottom: 14px; }
+.derriere .contact { color: var(--text-2); }
+.derriere .contact a { color: var(--orange-dark); font-weight: 700; }
+
+/* Conseils premier repas */
+.trust-bas { max-width: 720px; margin: 50px auto 0; }
+.conseils { display: grid; grid-template-columns: 240px 1fr; align-items: center; background: #262626; border: 1px solid #333; border-left: 4px solid var(--orange); border-radius: var(--radius); overflow: hidden; }
+.conseils img { width: 100%; height: 300px; object-fit: cover; object-position: center 40%; display: block; }
+.conseils p { padding: 28px 34px; font-size: 21px; font-weight: 700; line-height: 1.45; color: #fff; }
+
+/* Appel final */
+.cta-final {
+  background: linear-gradient(rgba(232, 85, 10, 0.82), rgba(255, 107, 53, 0.72)), url('images/repas-3.jpg') center 30% / cover;
+  color: #fff; text-align: center; padding: 120px 0;
+}
+.cta-final h2 { text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25); }
+.cta-final h2 { margin-bottom: 12px; }
+.cta-final p { font-size: 18px; opacity: .95; margin-bottom: 30px; }
+.cta-final .stores { justify-content: center; }
+
+/* Pied de page */
+footer { background: var(--dark); color: #aaa; padding: 50px 0 40px; font-size: 15px; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
+footer .logo { color: #fff; margin-bottom: 10px; }
+footer nav { display: flex; flex-wrap: wrap; gap: 14px 26px; }
+footer a { text-decoration: none; }
+footer a:hover { color: #fff; }
+footer .copy { width: 100%; border-top: 1px solid #333; padding-top: 22px; font-size: 13px; }
+
+/* ─── Telephone ─── */
+@media (max-width: 860px) {
+  .nav-links a:not(.btn) { display: none; }
+  .hero-img {
+    width: 100%; bottom: auto; height: 340px; background-position: center 35%;
+    -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
+  }
+  .hero .wrap { grid-template-columns: 1fr; text-align: center; padding-top: 330px; min-height: 0; }
+  .hero p.lead { margin-left: auto; margin-right: auto; }
+  .stores { justify-content: center; }
+  .hero .note { padding-bottom: 36px; }
+  .chip { font-size: 13px; padding: 6px 11px; }
+  section { padding: 64px 0; }
+  .steps, .duo, .trust-grid, .resto { grid-template-columns: 1fr; }
+  .conseils { grid-template-columns: 120px 1fr; }
+  .conseils img { height: 100%; min-height: 170px; }
+  .conseils p { padding: 18px 20px; font-size: 17px; }
+  .fonctions-grid { grid-template-columns: 1fr; gap: 40px; }
+  .fonctions-liste { grid-template-columns: 1fr; }
+  .fonctions-phone { order: -1; }
+  .app-phone.app-phone-grand { width: 200px; }
+  .probleme-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+  .resto { gap: 30px; }
+  .gallery img { width: 210px; }
+}
+@media (max-width: 420px) {
+  .store { min-width: 0; width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#"><img src="images/icon.png" alt=""> FoodFriends</a>
+    <nav class="nav-links">
+      <a href="#comment">Comment ça marche</a>
+      <a href="#confiance">Confiance</a>
+      <a href="#restaurateurs">Restaurateurs</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-orange" href="#telecharger">Télécharger</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Haut de page -->
+<div class="hero">
+  <div class="hero-img" role="img" aria-label="Un homme et une femme partagent une pizza dans un café"></div>
+  <div class="wrap">
+    <div>
+      <h1>Fini de manger solo.</h1>
+      <p class="lead">FoodFriends te met en relation avec quelqu'un que tu ne connais pas encore, près de chez toi à Paris, pour partager un bon repas. Tu invites, tu te fais inviter, ou chacun paie sa part.</p>
+      <p class="chute script">Une amitié, un contact pro, ou plus si affinités.</p>
+      <div class="stores" id="telecharger">
+        <a class="store" href="https://apps.apple.com/fr/app/id6761826400" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.37 12.6c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.48.83-.72 0-1.82-.81-3-.79-1.54.02-2.96.9-3.76 2.28-1.6 2.78-.41 6.9 1.15 9.15.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.4-.92-2.42-3.65zM14.1 5.86c.63-.77 1.06-1.83.94-2.89-.91.04-2.01.61-2.66 1.37-.58.67-1.1 1.76-.96 2.8 1.01.08 2.05-.52 2.68-1.28z"/></svg>
+          <span><small>Télécharger sur l'</small><strong>App Store</strong></span>
+        </a>
+        <span class="store soon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 1.8 13.4 12l-9.8 10.2c-.36-.2-.6-.6-.6-1.1V2.9c0-.5.24-.9.6-1.1zm11 11.4 2.5 2.6-11.3 6.5 8.8-9.1zm3.7-3.1 2.8 1.6c.8.5.8 1.6 0 2.1l-2.8 1.6-2.8-2.9 2.8-2.4zM5.8 1.7l11.3 6.5-2.5 2.6-8.8-9.1z"/></svg>
+          <span><small>Bientôt sur</small><strong>Google Play</strong></span>
+        </span>
+      </div>
+      <p class="note">Gratuit · Paris et alentours pour commencer</p>
+    </div>
+  </div>
+</div>
+
+<!-- Le probleme -->
+<section class="probleme">
+  <div class="wrap probleme-grid">
+    <div class="probleme-visual">
+      <img src="images/seul.jpg" alt="Une femme seule à la terrasse d'un café regarde son téléphone" loading="lazy">
+      <span class="chip chip-e">🔔 Nouvelle invitation près de toi</span>
+    </div>
+    <div>
+      <p class="question">Tu as envie de tester ce nouveau resto, mais personne n'est dispo ?</p>
+      <p class="question">Tu manges seul le midi, toujours au même endroit ?</p>
+      <p class="question">Tu aimerais rencontrer du monde, simplement, autour d'une bonne table ?</p>
+      <p class="reponse">FoodFriends est fait pour toi.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Comment ca marche -->
+<section id="comment">
+  <div class="wrap">
+    <div class="center">
+      <div class="kicker">Comment ça marche</div>
+      <h2>Trois étapes, et à table</h2>
+      <p class="intro">Pas besoin de swiper pendant des heures. On part d'une envie concrète. Un resto, une heure, une personne.</p>
+    </div>
+    <div class="steps">
+      <div class="card step">
+        <div class="step-visual">
+          <img class="step-photo" src="images/etape-1.jpg" alt="Un homme sourit en regardant son téléphone dans un café" loading="lazy">
+          <div class="app-phone"><img src="images/ecran-fil.jpg" alt="Le fil des invitations dans l'appli FoodFriends" loading="lazy"></div>
+        </div>
+        <div class="num">1</div>
+        <h3>Publie ou parcours</h3>
+        <p>Propose un repas (restaurant, heure, budget) ou parcours les invitations près de chez toi, sur la liste ou sur la carte.</p>
+      </div>
+      <div class="card step">
+        <img class="step-photo" src="images/etape-2.jpg" alt="Une jeune femme sourit en regardant son téléphone" loading="lazy">
+        <div class="num">2</div>
+        <h3>Choisis ton convive</h3>
+        <p>Les personnes intéressées se proposent. Tu vois leur profil, leurs avis et leur score de fiabilité, et tu choisis.</p>
+      </div>
+      <div class="card step">
+        <img class="step-photo" src="images/etape-3.jpg" alt="Une femme arrive en souriant à la table où on l'attend" loading="lazy">
+        <div class="num">3</div>
+        <h3>Retrouvez-vous au resto</h3>
+        <p>Vous confirmez votre présence sur place, vous profitez du repas, puis chacun laisse un avis sur l'autre.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Inviter ou partager -->
+<section class="formules">
+  <div class="wrap">
+    <div class="center">
+      <div class="kicker">Deux formules</div>
+      <h2>Tu invites, ou on partage ?</h2>
+      <p class="intro">Tu choisis la formule au moment de publier. Tout le monde sait à quoi s'attendre avant de venir.</p>
+    </div>
+    <div class="duo">
+      <div class="card formule invite">
+        <div class="band">🎁 C'est moi qui invite</div>
+        <img class="formule-photo" src="images/invite.jpg" alt="Un homme règle l'addition au serveur, son invitée à table" loading="lazy">
+        <div class="body">
+          <h3>L'hôte paie l'addition</h3>
+          <p>Tu as envie de faire découvrir une adresse et de rencontrer quelqu'un ? Tu invites, avec un budget maximum annoncé.</p>
+          <ul>
+            <li>Budget clair dès le départ</li>
+            <li>Lieu surprise possible, dévoilé au match</li>
+            <li>Tu choisis ton convive</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card formule split">
+        <div class="band">🤝 On partage l'addition</div>
+        <img class="formule-photo" src="images/partage.jpg" alt="Deux amies sortent chacune leur carte pour payer" loading="lazy">
+        <div class="body">
+          <h3>Chacun paie sa part</h3>
+          <p>Tu ne veux pas manger seul ce midi ou ce soir ? Propose un repas, chacun règle ce qu'il a pris.</p>
+          <ul>
+            <li>Idéal pour un déjeuner en semaine</li>
+            <li>Aucune gêne au moment de payer</li>
+            <li>Ouvert à tous, ou à tes amis seulement</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tout est dans l'appli -->
+<section class="fonctions" id="appli">
+  <div class="wrap">
+    <div class="center">
+      <div class="kicker">Tout est dans l'appli</div>
+      <h2>Du premier message au dernier avis</h2>
+      <p class="intro">Tout ce qu'il faut pour se retrouver, se faire confiance et garder le contact.</p>
+    </div>
+    <div class="fonctions-grid">
+      <div class="fonctions-liste">
+        <div class="fonction"><span class="ico">💬</span><div><h3>Messagerie</h3><p>Dès le match, discute avec ton convive pour caler les derniers détails.</p></div></div>
+        <div class="fonction"><span class="ico">🗺️</span><div><h3>Map</h3><p>Repère d'un coup d'œil les invitations autour de toi, resto par resto.</p></div></div>
+        <div class="fonction"><span class="ico">✨</span><div><h3>Découvrir</h3><p>Trouve des restos près de chez toi et de nouveaux profils.</p></div></div>
+        <div class="fonction"><span class="ico">👥</span><div><h3>Amis</h3><p>Si le courant est passé, garde le contact avec ton convive, et réserve certaines invitations à tes amis.</p></div></div>
+        <div class="fonction"><span class="ico">⭐</span><div><h3>Avis</h3><p>Note ton repas, ton convive et le resto, pour une communauté de confiance.</p></div></div>
+        <div class="fonction"><span class="ico">🔔</span><div><h3>Notifications</h3><p>Sois prévenu quand quelqu'un répond à ton invitation, ou quand c'est un match.</p></div></div>
+      </div>
+      <div class="fonctions-phone">
+        <div class="app-phone app-phone-grand"><img src="images/ecran-messages.jpg" alt="Une conversation entre deux convives dans l'appli FoodFriends" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Captures -->
+<section>
+  <div class="wrap">
+    <div class="center">
+      <div class="kicker">Aperçu</div>
+      <h2>Découvre l'appli</h2>
+      <p class="intro">Fais défiler pour voir les écrans principaux.</p>
+    </div>
+    <div class="gallery">
+      <img src="images/01-fil.jpg" alt="Fil des invitations" loading="lazy">
+      <img src="images/02-invitation.jpg" alt="Détail d'une invitation" loading="lazy">
+      <img src="images/03-anonyme.jpg" alt="Hôte anonyme jusqu'au match" loading="lazy">
+      <img src="images/04-match.jpg" alt="Écran de match" loading="lazy">
+      <img src="images/05-presence.jpg" alt="Confirmation de présence au restaurant" loading="lazy">
+      <img src="images/06-profil.jpg" alt="Profil et avis" loading="lazy">
+      <img src="images/07-messages.jpg" alt="Messagerie avec son convive" loading="lazy">
+      <img src="images/08-avis-personne.jpg" alt="Avis laissé sur un convive" loading="lazy">
+      <img src="images/09-avis-resto.jpg" alt="Avis sur un restaurant" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- Confiance -->
+<section class="trust" id="confiance">
+  <div class="wrap">
+    <div class="center">
+      <div class="kicker">Confiance et sécurité</div>
+      <h2>Rencontrer un inconnu, oui.<br>Avec des garde-fous.</h2>
+      <p class="intro">Tout est pensé pour que tu saches avec qui tu manges, et pour que chacun vienne vraiment.</p>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="ico">⭐</div>
+        <h3>Score de fiabilité</h3>
+        <p>Chaque repas honoré fait monter le score. Une absence ou une annulation de dernière minute le fait baisser.</p>
+      </div>
+      <div class="trust-item">
+        <div class="ico">📍</div>
+        <h3>Présence confirmée sur place</h3>
+        <p>Une fois au restaurant, chacun confirme sa présence grâce à sa position. Celui qui ne vient pas perd des points de fiabilité, et l'autre peut le signaler absent.</p>
+      </div>
+      <div class="trust-item">
+        <div class="ico">🔒</div>
+        <h3>Avis à l'aveugle</h3>
+        <p>Tu ne vois pas l'avis de l'autre avant d'avoir donné le tien. Les avis restent donc honnêtes.</p>
+      </div>
+      <div class="trust-item">
+        <div class="ico">🕶️</div>
+        <h3>Mode anonyme</h3>
+        <p>Tu peux cacher ton profil et même le restaurant jusqu'au match. Seul ton convive te découvre.</p>
+      </div>
+      <div class="trust-item">
+        <div class="ico">👤</div>
+        <h3>Prénom et initiale seulement</h3>
+        <p>Ton nom complet n'est jamais affiché. Tu choisis ce que les autres voient de ton profil.</p>
+      </div>
+      <div class="trust-item">
+        <div class="ico">🚫</div>
+        <h3>Bloquer et signaler</h3>
+        <p>Un comportement déplacé ? Bloque la personne en un geste et signale-la. Ton signalement nous est transmis directement.</p>
+      </div>
+    </div>
+    <div class="trust-bas">
+    <div class="conseils">
+      <img src="images/ressenti.jpg" alt="Une femme de dos s'éloigne de la terrasse d'un bistrot parisien" loading="lazy">
+      <p>Écoute ton ressenti. En cas de malaise, pars et signale la personne dans l'appli.</p>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- Restaurateurs -->
+<section id="restaurateurs">
+  <div class="wrap resto">
+    <div>
+      <div class="kicker">Restaurateurs</div>
+      <h2>Ton restaurant, choisi par des gens qui ont envie de sortir</h2>
+      <p class="intro" style="margin-bottom:0">Sur FoodFriends, chaque invitation amène deux personnes à ta table. Prends la main sur ta fiche.</p>
+      <ul>
+        <li>🏷️ <span><strong>Revendique ta fiche</strong> depuis l'appli et gère tes infos, tes photos et ton menu.</span></li>
+        <li>💬 <span><strong>Réponds aux avis</strong> laissés par les clients venus avec FoodFriends.</span></li>
+        <li>💜 <span><strong>Deviens partenaire</strong> pour que ton restaurant soit mis en avant dans l'appli, avec son badge violet « Partenaire ».</span></li>
+      </ul>
+      <a class="btn btn-orange" href="mailto:contact@foodfriends.app?subject=Restaurant%20partenaire">Nous contacter</a>
+    </div>
+    <div class="card resto-card">
+      <div class="resto-visual">
+        <img src="images/restaurateur.jpg" alt="Une restauratrice souriante accueille ses clients" loading="lazy">
+        <span class="badge-partner">Partenaire</span>
+      </div>
+      <h3>Deux couverts, à chaque match</h3>
+      <p>Chaque invitation fixe un restaurant et une heure, et les deux personnes confirment leur présence une fois sur place.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="center">
+      <div class="kicker">Questions fréquentes</div>
+      <h2>Tu te demandes peut-être…</h2>
+      <p class="intro">&nbsp;</p>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>FoodFriends, c'est une appli de rencontre ?</summary>
+        <p>D'abord, c'est une appli pour partager un bon repas avec quelqu'un de nouveau. Ensuite, tout est possible. Une belle discussion, un nouvel ami, une opportunité pro… ou plus si affinités. Si le courant passe, tu peux ajouter la personne en ami et la revoir.</p>
+      </details>
+      <details>
+        <summary>Est-ce que c'est gratuit ?</summary>
+        <p>Oui, l'appli est gratuite. Tu paies seulement ton repas au restaurant, ou rien du tout si quelqu'un t'invite.</p>
+      </details>
+      <details>
+        <summary>Qui paie l'addition ?</summary>
+        <p>C'est écrit sur chaque invitation. Avec « C'est moi qui invite », l'hôte paie jusqu'au budget annoncé. Avec « On partage », chacun paie sa part.</p>
+      </details>
+      <details>
+        <summary>Et si l'autre personne ne vient pas ?</summary>
+        <p>Tu peux la signaler absente depuis l'appli. Son score de fiabilité baisse, et ça se voit sur son profil pour les prochains repas.</p>
+      </details>
+      <details>
+        <summary>Je peux choisir avec qui je mange ?</summary>
+        <p>Oui. Quand tu publies une invitation, c'est toi qui choisis parmi les personnes intéressées. Tu peux aussi réserver l'invitation à tes amis, ou à un genre précis.</p>
+      </details>
+      <details>
+        <summary>Dans quelles villes ?</summary>
+        <p>On démarre à Paris et dans les alentours. FoodFriends vient de se lancer, alors les invitations seront encore rares au début, même à Paris. Le meilleur moyen de lancer le mouvement ? Publie la tienne, où que tu sois. Plus on est nombreux à le faire, plus il y a de tables à rejoindre.</p>
+      </details>
+      <details>
+        <summary>Il faut quel âge ?</summary>
+        <p>FoodFriends est réservé aux personnes majeures (18 ans et plus).</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Qui est derriere -->
+<section class="derriere">
+  <div class="wrap">
+    <div class="card center">
+      <div class="kicker">Qui est derrière FoodFriends ?</div>
+      <p class="texte">FoodFriends est un projet indépendant, né à Paris, imaginé et construit par un passionné de bonnes tables. L'idée est simple. Un bon repas est encore meilleur quand on le partage.</p>
+      <p class="contact">Une question, une idée ? <a href="mailto:contact@foodfriends.app">contact@foodfriends.app</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- Appel final -->
+<section class="cta-final">
+  <div class="wrap">
+    <h2>Ton prochain repas commence ici</h2>
+    <p>Télécharge FoodFriends et publie ta première invitation.</p>
+    <div class="stores">
+      <a class="store" href="https://apps.apple.com/fr/app/id6761826400" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.37 12.6c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.48.83-.72 0-1.82-.81-3-.79-1.54.02-2.96.9-3.76 2.28-1.6 2.78-.41 6.9 1.15 9.15.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.4-.92-2.42-3.65zM14.1 5.86c.63-.77 1.06-1.83.94-2.89-.91.04-2.01.61-2.66 1.37-.58.67-1.1 1.76-.96 2.8 1.01.08 2.05-.52 2.68-1.28z"/></svg>
+        <span><small>Télécharger sur l'</small><strong>App Store</strong></span>
+      </a>
+      <span class="store soon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 1.8 13.4 12l-9.8 10.2c-.36-.2-.6-.6-.6-1.1V2.9c0-.5.24-.9.6-1.1zm11 11.4 2.5 2.6-11.3 6.5 8.8-9.1zm3.7-3.1 2.8 1.6c.8.5.8 1.6 0 2.1l-2.8 1.6-2.8-2.9 2.8-2.4zM5.8 1.7l11.3 6.5-2.5 2.6-8.8-9.1z"/></svg>
+        <span><small>Bientôt sur</small><strong>Google Play</strong></span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="logo" href="#"><img src="images/icon.png" alt=""> FoodFriends</a>
+      <div>Partage un repas avec quelqu'un de nouveau.</div>
+    </div>
+    <nav>
+      <a href="mailto:contact@foodfriends.app">contact@foodfriends.app</a>
+      <a href="https://confirm.foodfriends.app/support.html">Assistance</a>
+      <a href="https://confirm.foodfriends.app/privacy.html">Confidentialité</a>
+      <a href="https://confirm.foodfriends.app/delete-account.html">Supprimer mon compte</a>
+      <a href="https://confirm.foodfriends.app/child-safety.html">Sécurité des enfants</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+    </nav>
+    <div class="copy">© 2026 FoodFriends · Fait à Paris avec appétit</div>
+  </div>
+</footer>
+
+<script>
+// « Telecharger » remonte en haut de page : boutons en bas de l'ecran, titre visible au-dessus
+document.querySelector('.nav a[href="#telecharger"]').addEventListener('click', function (e) {
+  e.preventDefault();
+  document.getElementById('telecharger').scrollIntoView({ block: 'end' });
+});
+</script>
+</body>
+</html>
